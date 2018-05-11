@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Component from './components/p2/Styling/Styling';
+import TodoComponent from './components/todo/TodoComponent/TodoComponent';
 
 function App() {
   return (
-    <Component />
+    <TodoComponent />
   );
 }
 
