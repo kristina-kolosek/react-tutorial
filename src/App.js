@@ -1,10 +1,9 @@
 import React from 'react';
+import LoginComponent from './components/LoginComponent/LoginComponent'
 
 function App() {
   return (
-    <h1>
-      Welcome to react tutorial
-    </h1>
+    <LoginComponent />
   );
 }
 
