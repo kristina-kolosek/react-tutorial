@@ -1,10 +1,10 @@
 import React from 'react';
 
+import Component from './components/p2/Styling/Styling';
+
 function App() {
   return (
-    <h1>
-      Welcome to react tutorial
-    </h1>
+    <Component />
   );
 }
 
