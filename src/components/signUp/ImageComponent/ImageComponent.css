@@ -1,0 +1,13 @@
+.fileButton {
+  display: none;
+  opacity: 0;
+}
+
+.imageHolder {
+  margin-right:350px;
+}
+
+.image {
+  width: 150px;
+  height: 150px;
+}

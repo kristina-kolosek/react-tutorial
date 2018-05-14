@@ -1,10 +1,10 @@
 import React from 'react';
 
-import MovieListComponent from './components/MovieList/MovieListComponent/MovieListComponent';
+import SignUpComponent from './components/signUp/SignUpComponent/SignUpComponent';
 
 function App() {
   return (
-    <MovieListComponent />
+    <SignUpComponent />
   );
 }
 

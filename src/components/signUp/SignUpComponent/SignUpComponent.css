@@ -1,0 +1,10 @@
+body {
+  background-color: #74b9ff;
+  font-family: 'Play',Arial,Helvetica,sans-serif;
+}
+
+.signUp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
