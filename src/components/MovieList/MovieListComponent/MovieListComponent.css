@@ -1,0 +1,7 @@
+.MovieItems {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Play',Arial,Helvetica,sans-serif;
+  background-color: #000033;
+}

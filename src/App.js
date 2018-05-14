@@ -1,10 +1,10 @@
 import React from 'react';
 
-import TodoComponent from './components/todo/TodoComponent/TodoComponent';
+import MovieListComponent from './components/MovieList/MovieListComponent/MovieListComponent';
 
 function App() {
   return (
-    <TodoComponent />
+    <MovieListComponent />
   );
 }
 

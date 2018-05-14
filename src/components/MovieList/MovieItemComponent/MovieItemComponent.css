@@ -1,0 +1,47 @@
+.threeSeconds {
+  width: 200px;
+  height: 200px;
+  background-image: url("threeSeconds.jpg");
+  background-size: cover;
+}
+
+.isleOfDogs {
+  width: 200px;
+  height: 200px;
+  background-image: url("isleOfDogs.png");
+  background-size: cover;
+}
+
+.stolenPrincess {
+  width: 200px;
+  height: 200px;
+  background-image: url("stolenPrincess.jpg");
+  background-size: cover;
+}
+
+.movieItem {
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 800px;
+  height: 250px;
+  margin: 10px 0;
+  padding: 30px;
+}
+
+.movieDescription {
+  padding: 0 50px;
+}
+
+.info {
+  color: white;
+  display:flex;
+  flex-direction: column;
+  padding: 35px 0 0 0;
+}
+
+.movieTitle {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
