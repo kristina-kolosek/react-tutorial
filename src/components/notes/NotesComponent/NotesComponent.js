@@ -20,10 +20,9 @@ class NotesComponent extends Component {
           content: "content2"
         }
       ],
-      selectedDocument: {
-        title: "",
-        content: ""
-      }
+      selectedDocument: null,
+      filtered: false,
+      filteredDocuments : []
     }
   }
 
@@ -32,7 +31,12 @@ class NotesComponent extends Component {
       if(document.title == event.target.textContent.trim()) {
         this.setState((prevState) => {
           let newState = prevState;
-          newState["selectedDocument"] = document;
+          let selectedDocument = {
+            oldTitle: document.title,
+            title: document.title,
+            content: document.content
+          };
+          newState["selectedDocument"] = selectedDocument;
           return {
             newState
           }
@@ -41,19 +45,130 @@ class NotesComponent extends Component {
     })
     //console.log(event.target.textContent)
   }
+
+  handleChange = (field, newValue) => {
+    this.setState((prevState) => {
+      let newState = prevState;
+      newState["selectedDocument"][field] = newValue;
+      return {
+        newState
+      }
+    });
+  }
+
+  handleDelete = (event) => {
+    this.setState((prevState) => {
+      let newDocuments = prevState["documents"].filter((document) => {
+        return document.title == this.state.selectedDocument.oldTitle ? false : document;
+      });
+      let newState = prevState;
+      newState["documents"] = newDocuments;
+      newState["selectedDocument"] = null;
+      return {
+        newState
+      }
+    })
+  }
+
+  handleSave = (event) => {
+    this.setState((prevState) => {
+      let newDocument = {
+        title: this.state.selectedDocument["title"],
+        content: this.state.selectedDocument["content"]
+      }
+      let newState = prevState;
+      let selectedDocument = {
+        oldTitle: newDocument.title,
+        title: newDocument.title,
+        content: newDocument.content
+      }
+      let flag = 0;
+      let newDocuments = prevState.documents.filter((document) => {
+        if(document.title.trim() == this.state.selectedDocument.oldTitle.trim()) {
+          document.title = newDocument.title;
+          document.content = newDocument.content;
+          flag = 1;
+          return document
+        }
+      })
+      if(flag == 0) {
+        newState['documents'].push(newDocument);
+      }
+      newState['selectedDocument'] = selectedDocument;
+      return {
+        newState
+      }
+    });
+  }
+
+  handleAdd = () => {
+    this.setState((prevState) => {
+      let newState = prevState;
+      let newSelectedDocument = {
+        oldTitle: "",
+        title: "",
+        content: ""
+      }
+      newState['selectedDocument'] = newSelectedDocument;
+      return {
+        newState
+      }
+    })
+  }
+
+  handleSearch = (query) => {
+    this.setState((prevState) => {
+      let newState = prevState;
+      if(query == "") {
+        newState["filtered"] = false;
+      } else {
+        newState["filtered"] = true;
+        newState["filteredDocuments"] = prevState.documents.filter((document) =>{
+          if(document.title.includes(query.trim())) {
+            return true;
+          }
+        });
+      }
+      return {
+        newState
+      }
+    })
+  }
+  renderEditor = () => {
+    return (<EditorComponent
+      document={this.state.selectedDocument}
+      handleChange={this.handleChange}
+    />
+    )
+  }
+
+  renderError = () => {
+    return (
+      <div>
+        No document selected
+      </div>
+    )
+  }
    render() {
     return (
       <div className="notesComponent">
         <div className="searchAndListSection">
-          <SearchComponent />
+          <SearchComponent
+            handleAdd = {this.handleAdd}
+            handleSearch = {this.handleSearch}
+          />
           <DocumentListComponent
-            documents={this.state.documents}
+            documents={this.state.filtered ? this.state.filteredDocuments : this.state.documents}
             handleClick={this.handleDocumentClick}
+
           />
         </div>
         <div className="headerAndEditorSection">
-          <HeaderComponent />
-          <EditorComponent document={this.state.selectedDocument}/>
+          <HeaderComponent
+            handleDelete={this.handleDelete}
+            handleSave={this.handleSave}
+          />
+          {this.state.selectedDocument ? this.renderEditor() : this.renderError()}
         </div>
       </div>
     )

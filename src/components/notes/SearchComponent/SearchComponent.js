@@ -2,11 +2,14 @@ import React, {Component} from 'react';
 import './SearchComponent.css';
 
 class SearchComponent extends Component {
+  handleSearch = (event) => {
+    this.props.handleSearch(event.target.value);
+  }
   render() {
     return (
       <div className="searchComponent">
-        <div class="searchAndAddBar">
-          <span class="magnifyIcon">
+        <div className="searchAndAddBar">
+          <span className="magnifyIcon">
             <img
               src={require('./magnifying-glass.png')}
               className="magnifyImage"
@@ -16,8 +19,13 @@ class SearchComponent extends Component {
             type="search"
             className="searchInput"
             placeholder="Search"
+            onChange={this.handleSearch}
           />
-          <button class="addButton">
+
+          <button
+            className="addButton"
+            onClick={this.props.handleAdd}
+          >
             <img
               src={require('./add.png')}
               className="addImage"

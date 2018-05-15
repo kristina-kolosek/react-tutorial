@@ -22,3 +22,13 @@
   border-color: black;
   border-style: solid;
 }
+
+@media (max-width: 400px) {
+  .headerAndEditorSection {
+    width: 250px;
+  }
+  .searchAndListSection {
+    .width: 150px;
+  }
+
+}
