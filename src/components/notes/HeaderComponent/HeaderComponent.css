@@ -1,0 +1,43 @@
+.headerComponent {
+  width: 100%;
+  height: 5vw;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  display:flex;
+  flex-direction: row;
+}
+
+.notesTitle {
+  font-size: 42px;
+  font-weight: bold;
+  padding: 20px;
+  padding-left: 50px;
+}
+
+.deleteBtn {
+  margin-left: 50vw;
+  margin-top: 20px;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.saveBtn {
+  margin-left: 15px;
+  margin-top: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.deleteImage {
+  width: 20px;
+  height:20px;
+}
+
+.saveImage {
+  width: 20px;
+  height: 20px;
+}

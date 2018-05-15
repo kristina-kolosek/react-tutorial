@@ -1,0 +1,48 @@
+.searchComponent {
+  width: 100%;
+}
+
+.searchAndAddBar {
+  margin-top: 30px;
+  margin-left: 15px;
+  display: inline-block;
+}
+
+.magnifyIcon {
+  position: absolute;
+  top: 52px;
+  left: 35px;
+  font-size: 15px;
+}
+.magnifyImage {
+  width:20px;
+  height: 20px;
+}
+
+.addImage {
+  width:20px;
+  height: 20px;
+}
+
+.searchInput {
+  height: 30px;
+  border-radius: 25px;
+  border-style: solid;
+  border-width: 1px;
+  text-indent: 35px;
+}
+
+::placeholder {
+  padding-left: 35px;
+  color: black;
+}
+
+.addButton {
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  background-color: lightblue;
+  border-color: black;
+  border-width: 1px;
+  margin-left: 5px;
+}

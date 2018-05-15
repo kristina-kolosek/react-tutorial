@@ -1,0 +1,15 @@
+.documentListComponent {
+  width: 100%;
+  margin-top: 50px;
+  margin-left: 15px;
+}
+
+.documentItem {
+  height: 40px;
+  border-bottom: 1px solid;
+}
+
+.itemText {
+  margin-top: 25px;
+  margin-left: 15px;
+}

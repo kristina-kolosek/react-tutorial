@@ -1,10 +1,10 @@
 import React from 'react';
 
-import SignUpComponent from './components/signUp/SignUpComponent/SignUpComponent';
+import NotesComponent from './components/notes/NotesComponent/NotesComponent';
 
 function App() {
   return (
-    <SignUpComponent />
+    <NotesComponent />
   );
 }
 
