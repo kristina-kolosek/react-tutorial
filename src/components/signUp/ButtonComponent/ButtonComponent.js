@@ -3,8 +3,8 @@ import './ButtonComponent.css';
 
 function ButtonComponent(props) {
   return(
-    <button className="formB" disabled={props.disabled}>
-      Next
+    <button className="formBtn" disabled={props.disabled}>
+      NEXT
     </button>
   )
 }

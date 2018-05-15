@@ -1,15 +1,5 @@
 .headerTitle {
   font-size: 50px;
-  font-weight: bold;
+  font-weight: 1000;
   color: white;
-}
-
-.imageHolder {
-
-  width: 150px;
-  height: 150px;
-  border-style: 1px solid;
-  border-color: #fff;
-
-
 }

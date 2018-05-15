@@ -3,6 +3,7 @@ import ButtonComponent from '../ButtonComponent/ButtonComponent';
 import HeaderComponent from '../HeaderComponent/HeaderComponent';
 import FormComponent from '../FormComponent/FormComponent';
 import ImageComponent from '../ImageComponent/ImageComponent';
+import CheckBoxComponent from '../CheckBoxComponent/CheckBoxComponent'
 import './SignUpComponent.css';
 
 class SignUpComponent extends Component {
@@ -13,7 +14,8 @@ class SignUpComponent extends Component {
       lastName: "",
       email: "",
       password: "",
-      image: ""
+      image: "",
+      agreedTerms: false,
     };
   }
   handleChange = (field) => (newValue) => {
@@ -30,10 +32,19 @@ class SignUpComponent extends Component {
     console.log("aa");
   }
 
+  handleCheck = (event) => {
+    this.setState((prevState) => {
+      let newState = prevState;
+      newState["agreedTerms"] = !prevState["agreedTerms"];
+      return {
+        newState
+      }
+    })
+  }
   render() {
     return (
       <div className="signUp">
-        <HeaderComponent title="Sign Up" />
+        <HeaderComponent title="SIGN UP" />
         <FormComponent
           firstName={this.state.firstName}
           handleFirstName={this.handleChange("firstName")}
@@ -45,8 +56,13 @@ class SignUpComponent extends Component {
           handlePassword={this.handleChange("password")}
         />
         <ImageComponent handleClick={this.handleClick} handleChange={this.handleChange("image")}/>
+        <CheckBoxComponent
+          handleChange={this.handleCheck}
+          value={this.state.agreedTerms}
+          className={this.state.agreedTerms ? "checked" : "unchecked"}
+        />
         <ButtonComponent
-          disabled={!(this.state.firstName && this.state.lastName && this.state.email && this.state.password && this.state.image)}
+          disabled={!(this.state.firstName && this.state.lastName && this.state.email && this.state.password && this.state.image && this.state.agreedTerms)}
         />
       </div>
     )

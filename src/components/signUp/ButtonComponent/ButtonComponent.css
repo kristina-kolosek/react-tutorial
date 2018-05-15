@@ -1,7 +1,27 @@
-.formB {
+.formBtn {
   margin-top:50px;
-  width: 300px;
+  width: 500px;
+  height: 45px;
   font-size: 22px;
-  font-weight: bold;
+  font-weight: 1000;
   background-color: white;
+  color: #74b9ff;
+  border-color: white;
+  border-radius: 4px;
+}
+
+.formBtn:disabled {
+  color: gray;
+}
+
+@media (max-width: 400px) {
+  .formBtn {
+    width: 300px;
+  }
+}
+
+@media (min-width: 400px) {
+  .formBtn {
+    width: 400px;
+  }
 }

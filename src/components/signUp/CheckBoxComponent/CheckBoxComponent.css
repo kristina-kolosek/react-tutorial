@@ -1,0 +1,34 @@
+.checkBox {
+  margin-top: 60px;
+  display: flex;
+  color: white;
+  margin-right: 55px;
+}
+
+.mockCheck {
+  height: 15px;
+  width: 15px;
+  border-style: dashed;
+  border-width: 1px;
+}
+
+.checkText {
+  margin-left: 10px;
+}
+
+.inputCheck {
+  display: none;
+  opacity: 0;
+}
+
+.termsLink {
+  margin-left: 5px;
+  color: white;
+}
+
+.checked {
+  background-color: red;
+}
+
+.unchecked {
+}

@@ -29,7 +29,11 @@ class ImageComponent extends Component {
           onClick={this.imagePick}
           className="imageHolder"
         >
-        <img src={this.state.image} className="image" />
+          Upload Image *
+          <div className="container">
+            <img src={this.state.image} className="image error-fixed" />
+            <div className="centered">Click to add</div>
+          </div>
         </div>
         <input
           type="file"

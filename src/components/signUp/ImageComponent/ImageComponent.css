@@ -4,10 +4,54 @@
 }
 
 .imageHolder {
+  width: 150px;
+  height: 150px;
+  font-size: 14px;
+  border-style: 1px solid;
+  border-color: #fff;
   margin-right:350px;
+  color: #fff;
 }
 
 .image {
   width: 150px;
   height: 150px;
+  margin-top:15px;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+img.error-fixed {
+    text-indent: -9999px;
+    border: 1px solid #fff;
+    color: transparent;
+}
+
+@media (max-width: 400px) {
+  .imageHolder {
+    margin-right: 150px;
+  }
+}
+
+@media (min-width: 401px) {
+  .imageHolder {
+    margin-right: 245px;
+  }
+}
+
+@media (min-width: 800px) {
+  .imageHolder {
+    margin-right: 250px;
+  }
 }

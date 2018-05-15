@@ -7,3 +7,21 @@
   border-color: #fff;
   color: #fff;
 }
+
+::placeholder {
+  color: #fff;
+  font-size: 14px;
+  opacity: 1;
+}
+
+@media (max-width: 400px) {
+  .inputF {
+    width: 300px;
+  }
+}
+
+@media (min-width: 401px) {
+  .inputF {
+    width: 400px;
+  }
+}
