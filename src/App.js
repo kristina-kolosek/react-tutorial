@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Component from './components/p2/Styling/Styling';
+import Component from './p4/Router';
 
 function App() {
   return (
