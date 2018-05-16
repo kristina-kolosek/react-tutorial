@@ -22,7 +22,8 @@ class NotesComponent extends Component {
       ],
       selectedDocument: null,
       filtered: false,
-      filteredDocuments : []
+      filteredDocuments : [],
+      editting: false
     }
   }
 
@@ -37,6 +38,7 @@ class NotesComponent extends Component {
             content: document.content
           };
           newState["selectedDocument"] = selectedDocument;
+          newState["editting"] = false;
           return {
             newState
           }
@@ -50,6 +52,9 @@ class NotesComponent extends Component {
     this.setState((prevState) => {
       let newState = prevState;
       newState["selectedDocument"][field] = newValue;
+      if(prevState["selectedDocument"]["oldTitle"]) {
+        newState["editting"] = true;
+      }
       return {
         newState
       }
@@ -94,6 +99,7 @@ class NotesComponent extends Component {
       if(flag == 0) {
         newState['documents'].push(newDocument);
       }
+      newState['editting'] = false;
       newState['selectedDocument'] = selectedDocument;
       return {
         newState
@@ -160,7 +166,8 @@ class NotesComponent extends Component {
           <DocumentListComponent
             documents={this.state.filtered ? this.state.filteredDocuments : this.state.documents}
             handleClick={this.handleDocumentClick}
-
+            editting={this.state.editting}
+            documentEditted={this.state.editting ? this.state.selectedDocument.oldTitle : null}
           />
         </div>
         <div className="headerAndEditorSection">

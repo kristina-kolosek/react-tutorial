@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './SearchComponent.css';
+import ButtonComponent from '../ButtonComponent/ButtonComponent'
 
 class SearchComponent extends Component {
   handleSearch = (event) => {
@@ -22,15 +23,12 @@ class SearchComponent extends Component {
             onChange={this.handleSearch}
           />
 
-          <button
-            className="addButton"
-            onClick={this.props.handleAdd}
-          >
-            <img
-              src={require('./add.png')}
-              className="addImage"
-            />
-          </button>
+          <ButtonComponent
+            handleClick={this.props.handleAdd}
+            className="addBtn"
+            path="./add.png"
+          />
+
         </div>
       </div>
     )

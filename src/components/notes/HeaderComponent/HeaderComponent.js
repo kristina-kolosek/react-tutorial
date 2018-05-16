@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ButtonComponent from '../ButtonComponent/ButtonComponent';
 import './HeaderComponent.css';
 
 function HeaderComponent(props) {
@@ -7,24 +8,18 @@ function HeaderComponent(props) {
         <div className="notesTitle">
           Notes
         </div>
-        <button
-          className="deleteBtn"
-          onClick={props.handleDelete}
-        >
-          <img
-            src={require('./remove.png')}
-            className="deleteImage"
+        <div className="btns">
+          <ButtonComponent
+            path="./remove.png"
+            className="removeBtn"
+            handleClick={props.handleDelete}
           />
-        </button>
-        <button
-          className="saveBtn"
-          onClick={props.handleSave}
-        >
-          <img
-            src={require('./save.png')}
-            className="saveImage"
+          <ButtonComponent
+            path="./save.png"
+            className="saveBtn"
+            handleClick={props.handleSave}
           />
-        </button>
+        </div>
       </div>
     )
 }

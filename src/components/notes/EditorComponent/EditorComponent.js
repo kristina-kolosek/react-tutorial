@@ -13,19 +13,23 @@ class EditorComponent extends Component {
   render() {
     return (
       <div>
-        <input
-          type="text"
-          className="titleInput"
-          value={this.props.document.title}
-          onChange={this.handleTitle}
-        />
+        <div className="inputHolder">
+          <input
+            type="text"
+            className="titleInput"
+            placeholder="Title.."
+            value={this.props.document.title}
+            onChange={this.handleTitle}
+          />
+        </div>
         <textarea
+          placeholder="Body"
           className="contentInput"
           value={this.props.document.content}
           onChange={this.handleContent}
         >
-
         </textarea>
+
       </div>
     )
   }

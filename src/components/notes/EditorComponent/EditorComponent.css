@@ -1,15 +1,53 @@
 .titleInput {
-  padding-left: 15px;
-  width: 100%;
-  height: 40px;
+  padding-left: 55px;
+  width: 98%;
+  height: 50px;
+  color: white;
   font-size: 24px;
+  font-weight: bold;
+  font-style: italic;
+  background-color: transparent;
+  border: 0;
 }
 
 .contentInput {
-  padding-left: 15px;
-  width: 100%;
+  padding-left: 55px;
+  width: 98%;
   height: 75vh;
   font-size:22px;
+  background-color: transparent;
+  color: white;
+  padding-top: 20px;
+  border-style: none;
+  border-color: Transparent;
+  overflow: auto;
+  outline: none;
+  -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.contentInput:focus {
+  outline: none;
+  box-shadow:none !important;
+  border:1px solid #422918;
+}
+
+
+.inputHolder {
+  height: 60px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-color: white;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #c8d6e5;
+    margin-left: 0px !important;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 20px;
+    opacity: 1; /* Firefox */
 }
 
 @media (max-height: 400px) {

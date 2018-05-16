@@ -1,5 +1,5 @@
 .documentListComponent {
-  width: 100%;
+  width: 80%;
   margin-top: 50px;
   margin-left: 15px;
 }
@@ -12,4 +12,5 @@
 .itemText {
   margin-top: 25px;
   margin-left: 15px;
+  font-weight: bold;
 }

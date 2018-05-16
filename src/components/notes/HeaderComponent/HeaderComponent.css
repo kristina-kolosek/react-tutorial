@@ -1,48 +1,53 @@
 .headerComponent {
   width: 100%;
-  height: 50%;
+  height: 15%;
   border-style: solid;
-  border-color: black;
-  border-width: 1px;
+  border-color: white;
+  border-width: 0px;
+  border-bottom-width: 1px;
   display:flex;
   flex-direction: row;
+  align-items: center;
 }
 
 .notesTitle {
   font-size: 42px;
-  font-weight: bold;
+  font-weight: 1000;
+  text-shadow: 2px 2px gray;
   padding: 20px;
   padding-left: 50px;
 }
 
-.deleteBtn {
-  margin-left: 50vw;
-  margin-top: 20px;
-  background-color: lightblue;
-  width: 40px;
-  height: 40px;
-  border-radius: 5px;
-  border-color: black;
-  border-width: 1px;
+.btns {
+  margin-left: 70%;
 }
 
-.saveBtn {
-  margin-left: 15px;
-  margin-top: 20px;
-  background-color: lightblue;
-  width: 40px;
-  height: 40px;
-  border-radius: 5px;
-  border-color: black;
-  border-width: 1px;
+@media (max-width: 1600px) {
+  .btns {
+    margin-left: 65%;
+  }
 }
 
-.deleteImage {
-  width: 20px;
-  height:20px;
+@media (max-width: 1400px) {
+  .btns {
+    margin-left: 55%;
+  }
 }
 
-.saveImage {
-  width: 20px;
-  height: 20px;
+@media (max-width: 1050px) {
+  .btns {
+    margin-left: 45%;
+  }
+}
+
+@media (max-width: 900px) {
+  .btns {
+    margin-left: 30%;
+  }
+}
+
+@media (max-width: 700px) {
+  .btns {
+    margin-left: 0%;
+  }
 }

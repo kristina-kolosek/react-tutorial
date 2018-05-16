@@ -4,11 +4,22 @@ import './DocumentListComponent.css';
 class DocumentListComponent extends Component {
 
   renderDocumentItems = () => {
-    return this.props.documents.map((item, index) => (
-      <div key={`document_${index}`} className="documentItem" onClick={this.props.handleClick}>
-        <div className="itemText">{item.title} </div>
-      </div>
-    ))
+
+    if(this.props.editting) {
+      return this.props.documents.map((item, index) => (
+        <div key={`document_${index}`} className="documentItem" onClick={this.props.handleClick}>
+         <div className="itemText">{item.title}
+          {this.props.documentEditted == item.title.trim() ? "*" : "" }
+        </div>
+        </div>
+      ))
+    } else {
+      return this.props.documents.map((item, index) => (
+        <div key={`document_${index}`} className="documentItem" onClick={this.props.handleClick}>
+          <div className="itemText">{item.title} </div>
+        </div>
+      ))
+    }
   }
 
   render() {
