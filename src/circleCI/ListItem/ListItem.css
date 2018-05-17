@@ -85,6 +85,10 @@
   background-color: #eccc68;
 }
 
+.blackStatus {
+  background-color: #2d3436;
+}
+
 
 a:link {
     color: black;

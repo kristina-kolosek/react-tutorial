@@ -4,16 +4,19 @@ import './ListComponent.css';
 
 class ListComponent extends Component {
   renderBuilds() {
-    console.log(this.props.builds)
-    return this.props.builds.map((item, index) => {
-      return(
-        <div key={`build_${index}`}>
-          <ListItem
-            build={item}
-          />
-        </div>
-      )
-    });
+    if(this.props.builds.length > 0) {
+      return this.props.builds.map((item, index) => {
+        return(
+          <div key={`build_${index}`}>
+            <ListItem
+              build={item}
+            />
+          </div>
+        )
+      });
+    }else {
+      return <div></div>
+    }
   }
   render() {
     return(

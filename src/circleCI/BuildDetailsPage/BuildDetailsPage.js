@@ -2,69 +2,29 @@ import React, {Component} from 'react';
 import './BuildDetailsPage.css';
 import HeaderComponent from '../HeaderComponent/HeaderComponent'
 import axios from 'axios';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { fetchBuild } from '../reducers/BuildDetailsReducer/actions.js';
 
 class BuildDetailsPage extends Component {
-  constructor() {
-    super()
-    this.state = {
-      fetched: false,
-      build: {
-        status: "",
-        message: "",
-        branch: "",
-        stopTime: "",
-      },
 
-    }
-  }
   getSubheader = () => {
     return "Build no #" + this.props.match.params.num;
   }
 
-  updateBuild = (build) => {
-    this.setState((prevState) => {
-      return {
-        build: build,
-        fetched: true
-      }
-    })
-  }
-  getBuild = (updateBuild) => {
-    if(this.state.fetched) {
-      return;
-    }
-    let link = `https://circleci.com/api/v1.1/project/github/secondrotation/channel_advisor/${this.props.match.params.num}?circle-token=def3839ecb44fa30feba6620930443b95d647222&limit=20&offset=5&filter=completed`
-    console.log(link)
-    axios.get(link)
-      .then(function (response) {
-          let build = response.data;
-          let tempBuild = {
-            status: build["status"],
-            message: build["all_commit_details"][0]["subject"],
-            branch: build["branch"],
-            stopTime: build["stop_time"],
-            buildNum: build["build_num"]
-          }
-          updateBuild(tempBuild)
-
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
   render() {
     return (
       <div>
         <HeaderComponent subheader={this.getSubheader()} />
         {
-          this.getBuild(this.updateBuild)
+          this.props.fetchBuild(this.props.match.params.num)
         }
         <div className="detailItem">
           <div className="container">
             Branch name:
           </div>
           <div className="container">
-            {this.state.build.branch}
+            {this.props.build.branch}
           </div>
         </div>
         <div className="detailItem">
@@ -72,7 +32,7 @@ class BuildDetailsPage extends Component {
             Status:
           </div>
           <div className="container">
-            {this.state.build.status}
+            {this.props.build.status}
           </div>
         </div>
         <div className="detailItem">
@@ -80,12 +40,26 @@ class BuildDetailsPage extends Component {
             Commit Message:
           </div>
           <div className="container">
-            {this.state.build.message}
+            {this.props.build.message}
           </div>
         </div>
       </div>
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    build: state.buildDetails.build,
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    fetchBuild: fetchBuild,
+  }, dispatch)
+}
+
+BuildDetailsPage = connect(mapStateToProps, mapDispatchToProps)(BuildDetailsPage)
 
 export default BuildDetailsPage;

@@ -18,6 +18,8 @@ class ListItem extends Component {
       return "redStatus"
     } else if (this.props.build.status == "fixed") {
       return "yellowStatus"
+    } else {
+      return "blackStatus"
     }
   }
   getTimeIcon = () => {

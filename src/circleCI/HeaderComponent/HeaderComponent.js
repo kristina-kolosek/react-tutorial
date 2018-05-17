@@ -8,7 +8,7 @@ class HeaderComponent extends Component {
   render() {
     return (
       <div className="headerComponent">
-        <div clasName="titleSection">
+        <div className="itleSection">
           <div
             className="headerTitle">
             CIRCLE CI

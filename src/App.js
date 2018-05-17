@@ -1,10 +1,13 @@
 import React from 'react';
-
-import Component from './circleCI/Router';
+import { Provider } from 'react-redux';
+import store from './circleCI/store';
+import AppRouter from './circleCI/Router';
 
 function App() {
   return (
-    <Component />
+    <Provider store={store}>
+      <AppRouter />
+    </Provider>
   );
 }
 

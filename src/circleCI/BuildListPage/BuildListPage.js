@@ -1,61 +1,16 @@
 import React, {Component} from 'react';
 import HeaderComponent from '../HeaderComponent/HeaderComponent';
 import ListComponent from '../ListComponent/ListComponent';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { fetchBuilds } from '../reducers/BuildListReducer/actions.js';
 import './BuildListPage.css';
 import axios from 'axios';
 
 class BuildListPage extends Component {
-  constructor() {
-    console.log("cons")
-    super();
-    this.state = {
-      fetched: false,
-      builds: [
-        {
-          status: "",
-          message: "",
-          branch: "",
-          stopTime: "",
-        }
-      ],
-
-    }
+  componentDidMount() {
+    this.props.fetchBuilds()
   }
-  updateBuilds = (builds) => {
-    this.setState((prevState) => {
-      console.log("dd")
-      let newState = prevState;
-      newState["builds"] = builds;
-      newState["fetched"] = true;
-      return (
-        newState
-      )
-    })
-  }
-  getBuilds = (updateBuilds) => {
-    if(this.state.fetched) {
-      return;
-    }
-    axios.get('https://circleci.com/api/v1.1/project/github/secondrotation/channel_advisor?circle-token=def3839ecb44fa30feba6620930443b95d647222&limit=20&offset=5&filter=completed')
-      .then(function (response) {
-        let builds = [];
-        response.data.forEach((build) => {
-          let tempBuild = {
-            status: build["status"],
-            message: build["all_commit_details"][0]["subject"],
-            branch: build["branch"],
-            stopTime: build["stop_time"],
-            buildNum: build["build_num"]
-          }
-          builds.push(tempBuild);
-        })
-        updateBuilds(builds)
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
-
 
   render() {
     console.log("render")
@@ -65,14 +20,25 @@ class BuildListPage extends Component {
           subheader="Latest Builds"
         />
         <ListComponent
-          builds={this.state.builds}
+          builds={this.props.builds}
         />
-        {
-          this.getBuilds(this.updateBuilds)
-        }
       </div>
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    builds: state.buildList.builds,
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    fetchBuilds: fetchBuilds,
+  }, dispatch)
+}
+
+BuildListPage = connect(mapStateToProps, mapDispatchToProps)(BuildListPage)
 
 export default BuildListPage;
