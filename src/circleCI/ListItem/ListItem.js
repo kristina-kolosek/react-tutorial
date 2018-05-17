@@ -20,6 +20,9 @@ class ListItem extends Component {
       return "yellowStatus"
     }
   }
+  getTimeIcon = () => {
+    return require("./time.png");
+  }
   render() {
    return (
      <NavLink
@@ -29,20 +32,36 @@ class ListItem extends Component {
      <div
       className="item"
      >
-      <div className="itemHeader">
-        <div className="branch">
-          {this.props.build.branch}
-        </div>
-        <div className="timeAgo">
-          {this.props.build.stopTime}
+      <div
+        className="statusHolder">
+        <div
+          className={`itemStatus ${this.statusClassName()}`}>
+          <div className="statusText">
+            {this.props.build.status}
+          </div>
         </div>
       </div>
-      <div className="itemBody">
-        <div className="commitMessage">
+      <div className="branchHolder">
+        <div className="itemBranch">{this.props.build.branch}</div>
+        <div
+          className="itemMessage"
+        >
           {this.props.build.message}
         </div>
-        <div className="statusSection">
-            Status: <div className={this.statusClassName()}>{this.props.build.status} </div>
+      </div>
+      <div className="timeHolder">
+        <div
+          className="itemTime"
+        >
+        <img
+          src={this.getTimeIcon()}
+          className="timeIcon"
+        />
+            <div
+              className="timeText"
+            >
+              {this.props.build.stopTime}
+            </div>
         </div>
       </div>
     </div>

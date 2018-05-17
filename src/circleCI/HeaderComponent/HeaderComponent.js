@@ -1,19 +1,33 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './HeaderComponent.css';
 
-function HeaderComponent(props) {
-  return (
-    <div>
-      <div
-        className="headerTitle">
-        Circle CI
+class HeaderComponent extends Component {
+  getLogo = () => {
+    return require("./logo.png");
+  }
+  render() {
+    return (
+      <div className="headerComponent">
+        <div clasName="titleSection">
+          <div
+            className="headerTitle">
+            CIRCLE CI
+            <div>
+              <img
+                src={this.getLogo()}
+                className="logo"
+              />
+            </div>
+          </div>
+
+        </div>
+        <div
+          className="subheader"
+        >
+          {this.props.subheader}
+        </div>
       </div>
-      <div
-        className="subheader"
-      >
-        {props.subheader}
-      </div>
-    </div>
-  );
+    );
+  }
 }
 export default HeaderComponent;

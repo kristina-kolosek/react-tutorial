@@ -1,44 +1,90 @@
 .item {
   height: 70px;
   width: 100%;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: black;
-}
-
-.itemHeader {
-  padding-top: 15px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
-.itemBody {
-  display: flex;
-  flex-direction: row;
-    justify-content: space-between;
+.statusHolder {
+  width: 14%;
+  height: 100%;
+  background-color: rgba(195, 215, 235, 0.3);
 }
 
-.branch {
+.branchHolder {
+  margin: 0 10px;
+  width: 50%;
+  height: 100%;
+  background-color: rgba(195, 215, 235, 0.3);
+}
+
+.timeHolder {
+  width: 25%;
+  height: 100%;
+  background-color: rgba(195, 215, 235, 0.3);
+}
+
+.itemStatus {
+  margin: 25px;
+  margin-top:5px;
+  margin-left: 15%;
+  background-color: #7bed9f;
+  width: 50%;
+  border-radius: 16px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  height: 40px;
+}
+
+.statusText {
+  padding-top: 5px;
+}
+
+.itemBranch {
+  padding-left: 55px;
+  padding-top: 10px;
   font-weight: bold;
 }
 
-.greenStatus {
-  color: green;
+.itemMessage {
+  padding-left: 55px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  font-style: italic;
+  color: gray;
 }
 
-.redStatus {
-  color: red;
-}
-
-.yellowStatus {
-  color: orange;
-}
-
-.statusSection {
+.itemTime {
+  padding-top: 10px;
+  padding-left: 15px;
   display: flex;
   flex-direction: row;
 }
+
+.timeIcon {
+  height: 20px;
+}
+
+.timeText {
+  font-style: italic;
+  margin-left: 5px;
+}
+
+.greenStatus {
+  background-color: #7bed9f;
+}
+
+.redStatus {
+  background-color: #ff6b81;
+}
+
+.yellowStatus {
+  background-color: #eccc68;
+}
+
 
 a:link {
     color: black;

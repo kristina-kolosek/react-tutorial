@@ -1,5 +1,15 @@
-.detailItem {
-  margin: 20px 0;
-  font-size: 20px;
+.container {
+  width: 20%;
+  height: 40px;
+  margin: 20px;
+  padding-top:15px;
+  padding-left: 15px;
+  font-size: 22px;
   font-weight: bold;
+  background-color: rgba(195, 215, 235, 0.4);
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: row;
 }

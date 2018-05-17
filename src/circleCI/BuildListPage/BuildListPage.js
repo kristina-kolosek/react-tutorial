@@ -61,7 +61,9 @@ class BuildListPage extends Component {
     console.log("render")
     return (
       <div>
-        <HeaderComponent subheader="Latest Builds"/>
+        <HeaderComponent
+          subheader="Latest Builds"
+        />
         <ListComponent
           builds={this.state.builds}
         />

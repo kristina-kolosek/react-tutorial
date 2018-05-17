@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ListItem from '../ListItem/ListItem';
+import './ListComponent.css';
 
 class ListComponent extends Component {
   renderBuilds() {

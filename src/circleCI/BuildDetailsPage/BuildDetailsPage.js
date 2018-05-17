@@ -60,13 +60,28 @@ class BuildDetailsPage extends Component {
           this.getBuild(this.updateBuild)
         }
         <div className="detailItem">
-          Branch name: {this.state.build.branch}
+          <div className="container">
+            Branch name:
+          </div>
+          <div className="container">
+            {this.state.build.branch}
+          </div>
         </div>
         <div className="detailItem">
-          Status: {this.state.build.status}
+          <div className="container">
+            Status:
+          </div>
+          <div className="container">
+            {this.state.build.status}
+          </div>
         </div>
         <div className="detailItem">
-          Commit Message: {this.state.build.message}
+          <div className="container">
+            Commit Message:
+          </div>
+          <div className="container">
+            {this.state.build.message}
+          </div>
         </div>
       </div>
     );

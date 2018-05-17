@@ -1,10 +1,28 @@
+.headerComponent {
+  height: 200px;
+}
+
+.titleSection {
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+}
+
 .headerTitle {
+  font-weight: 1000;
   font-size: 48px;
-  font-weight: bold;
+  text-shadow: 2px 2px green;
   margin-left: 40%;
+  font-weight: bold;
 }
 
 .subheader {
   font-size:24px;
   font-weight: bold;
+  padding-left: 35px;
+}
+
+.logo {
+  margin-left: 50%;
+  height: 100px;
 }
