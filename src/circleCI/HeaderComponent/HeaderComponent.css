@@ -1,5 +1,5 @@
 .headerComponent {
-  height: 200px;
+  height: 100px;
 }
 
 .titleSection {
@@ -9,17 +9,20 @@
 }
 
 .headerTitle {
+  padding-top: 10px;
   font-weight: 1000;
   font-size: 48px;
-  text-shadow: 2px 2px green;
-  margin-left: 40%;
-  font-weight: bold;
+  color: lightblue;
+  margin-left: 35%;
+  text-shadow: 2px 2px gray;
+
 }
 
 .subheader {
   font-size:24px;
   font-weight: bold;
   padding-left: 35px;
+  margin-top: 20px;
 }
 
 .logo {

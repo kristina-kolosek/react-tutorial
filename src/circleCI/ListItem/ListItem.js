@@ -1,6 +1,11 @@
 import React, {Component} from 'react'
 import {NavLink} from 'react-router-dom'
 import './ListItem.css'
+import { restartBuild, cancelBuild } from '../reducers/BuildItemReducer/actions'
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import Moment from 'react-moment';
+import 'moment-timezone';
 
 class ListItem extends Component {
   getPath = () => {
@@ -24,6 +29,26 @@ class ListItem extends Component {
   }
   getTimeIcon = () => {
     return require("./time.png");
+  }
+  getRestartIcon = () => {
+    return require("./restart.png");
+  }
+  handleClick = (event) => {
+    event.preventDefault();
+    this.props.restartBuild(this.props.build)
+  }
+
+  cancelBuild = (event) => {
+    event.preventDefault();
+    console.log("aa");
+    this.props.cancelBuild(this.props.build)
+  }
+  checkNum = () => {
+    if(this.props.buildNum == this.props.build.buildNum){
+      return (<button className="restartBtn" onClick={this.cancelBuild}>
+        Cancel
+      </button>)
+    }
   }
   render() {
    return (
@@ -55,15 +80,33 @@ class ListItem extends Component {
         <div
           className="itemTime"
         >
-        <img
-          src={this.getTimeIcon()}
-          className="timeIcon"
-        />
+            <img
+              src={this.getTimeIcon()}
+              className="timeIcon"
+            />
             <div
               className="timeText"
             >
-              {this.props.build.stopTime}
+              <Moment fromNow>{this.props.build.stopTime}</Moment>
             </div>
+
+        <button
+          onClick={this.handleClick}
+          className="restartBtn"
+        >
+        <img
+          src={this.getRestartIcon()}
+          className="timeIcon"
+        />
+          <div>Restart Build</div>
+        </button>
+
+        <div>
+
+            { this.props.restarting  ?
+              this.checkNum()
+             : "" }
+        </div>
         </div>
       </div>
     </div>
@@ -71,4 +114,23 @@ class ListItem extends Component {
    )
  }
 }
+
+function mapStateToProps(state) {
+  return {
+    restarted: state.buildItem.restarted,
+    restarting: state.buildItem.restarting,
+    buildNum: state.buildItem.buildNum
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    restartBuild: restartBuild,
+    cancelBuild: cancelBuild
+  }, dispatch)
+}
+
+ListItem = connect(mapStateToProps, mapDispatchToProps)(ListItem)
+
+
 export default ListItem;

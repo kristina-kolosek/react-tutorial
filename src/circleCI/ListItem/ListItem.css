@@ -20,7 +20,7 @@
 }
 
 .timeHolder {
-  width: 25%;
+  width: 36%;
   height: 100%;
   background-color: rgba(195, 215, 235, 0.3);
 }
@@ -62,6 +62,7 @@
   padding-left: 15px;
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
 }
 
 .timeIcon {
@@ -87,6 +88,17 @@
 
 .blackStatus {
   background-color: #2d3436;
+}
+
+.restartBtn {
+  background-color: transparent;
+  box-shadow: 2px 2px 2px 2px gray;
+  color: black;
+  border-radius: 5px;
+  border-color:transparent;
+  text-align: center;
+
+  margin-bottom: 20px;
 }
 
 

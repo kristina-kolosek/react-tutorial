@@ -1,0 +1,11 @@
+/*the container must be positioned relative:*/
+.custom-select {
+  color: black;
+  background-color: #dfe6e9;
+  border-color: transparent;
+  border-radius: 5px;
+  margin-left: 10px;
+  height: 30px;
+  width: 140px;
+  box-shadow: 1px 1px 1px 1px gray;
+}

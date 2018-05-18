@@ -12,12 +12,6 @@ class HeaderComponent extends Component {
           <div
             className="headerTitle">
             CIRCLE CI
-            <div>
-              <img
-                src={this.getLogo()}
-                className="logo"
-              />
-            </div>
           </div>
 
         </div>

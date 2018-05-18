@@ -11,6 +11,11 @@ function buildListReducer(state = initialState, action) {
         builds: action.builds
       });
     }
+    case TYPES.GET_BRANCH_BUILDS: {
+      return Object.assign({...state}, {
+        builds: action.builds
+      });
+    }
     default: {
       break;
     }
